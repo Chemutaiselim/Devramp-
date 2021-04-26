@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1060344725431",
+    "project_id": "selimchemutailogo",
+    "storage_bucket": "selimchemutailogo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060344725431:android:ca81624799f731db6d3232",
+        "android_client_info": {
+          "package_name": "com.pamela.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060344725431-6j211npa48bk5httsnrm7cuo93tajiga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLIpsNNUbzzppcl1kngqgkbWN6ear45mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060344725431-6j211npa48bk5httsnrm7cuo93tajiga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
