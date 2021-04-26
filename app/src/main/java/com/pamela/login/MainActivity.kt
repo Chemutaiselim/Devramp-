@@ -1,11 +1,9 @@
-package com.pamela.projo
+package com.pamela.login
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.pamela.login.LogIn
-import com.pamela.login.R
 
 
 class MainActivity: AppCompatActivity() {

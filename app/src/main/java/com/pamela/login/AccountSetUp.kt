@@ -1,4 +1,4 @@
-package com.pamela.projo
+package com.pamela.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.pamela.login.FirstPage
-import com.pamela.login.R
-import kotlinx.android.synthetic.main.account_setup.*
 import kotlinx.android.synthetic.main.account_setup.*
 
 class AccountSetUp : AppCompatActivity() {
@@ -102,7 +99,7 @@ class AccountSetUp : AppCompatActivity() {
                 if (task.isSuccessful){
                     Toast.makeText(this,"Created Account Successfully :)!",Toast.LENGTH_SHORT).show()
                     sendEmailVerification()
-                    startActivity(Intent(this,FirstPage::class.java))
+                    startActivity(Intent(this, FirstPage::class.java))
                     finish()
                 }
                 else{
