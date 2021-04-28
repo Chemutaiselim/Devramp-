@@ -2,6 +2,7 @@ package com.pamela.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,28 +25,26 @@ class ResetPassword : AppCompatActivity() {
         back_forgot_password.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-
         }
 
+auth= FirebaseAuth.getInstance()
 
         Submit_forgot_password.setOnClickListener {
             sendEmail()
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }
-    private fun notEmpty(): Boolean =email.isNotEmpty()
+
 
     private fun sendEmail() {
         email = EmailAddress_forgot_Password.text.toString().trim()
-        if (notEmpty()) {
+        if (TextUtils.isEmpty(email)) {
             auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val i = Intent(this, MainActivity::class.java)
-                    startActivity(i)
-                    Toast.makeText(this, "Check your email, $email to reset Password:)", Toast.LENGTH_LONG).show()
-                    finish()
+                    Toast.makeText(this, "Check your email,to reset Password:)", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(this, "Failed:( Kindly Input your email correctly and retry", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Failed Kindly Input your email correctly and retry", Toast.LENGTH_LONG).show()
                 }
             }
         }else{

@@ -45,7 +45,7 @@ class AccountSetUp : AppCompatActivity() {
 
         login_create_account.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
-            Toast.makeText(this, "Please LogIn to your Account :|", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please LogIn to your Account :)", Toast.LENGTH_SHORT).show()
             finish()
         }
     }
