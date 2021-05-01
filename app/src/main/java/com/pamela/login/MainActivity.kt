@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity: AppCompatActivity() {
 
-    private var timeout: Long = 300
+    private var timeout: Long = 3000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

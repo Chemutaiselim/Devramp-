@@ -53,8 +53,8 @@ class AccountSetUp : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val user: FirebaseUser? = firebaseAuth.currentUser
-        user?.let {
+        //val user: FirebaseUser? = firebaseAuth.currentUser
+        firebaseUser?.let {
             startActivity(Intent(this, FirstPage::class.java))
             Toast.makeText(this, "Welcome Back $last_name :),", Toast.LENGTH_LONG).show()
 

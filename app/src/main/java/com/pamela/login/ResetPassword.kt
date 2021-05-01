@@ -14,44 +14,52 @@ class ResetPassword : AppCompatActivity() {
     private lateinit var email: String
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reset_password)
 
         inputArray = arrayOf(EmailAddress_forgot_Password)
 
-        back_forgot_password.setOnClickListener{
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+        back_forgot_password.setOnClickListener {
+//            startActivity(Intent(this, LogIn::class.java))
+//            finish()
+            onBackPressed()
 
         }
 
 
         Submit_forgot_password.setOnClickListener {
             sendEmail()
-            finish()
         }
     }
-    private fun notEmpty(): Boolean =email.isNotEmpty()
+
+    private fun notEmpty(): Boolean = email.isNotEmpty()
 
     private fun sendEmail() {
+        auth = FirebaseAuth.getInstance()
         email = EmailAddress_forgot_Password.text.toString().trim()
         if (notEmpty()) {
             auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val i = Intent(this, MainActivity::class.java)
+                    val i = Intent(this, LogIn::class.java)
+                    Toast.makeText(
+                        this, "Check your email, $email to reset Password:)",
+                        Toast.LENGTH_LONG
+                    ).show()
                     startActivity(i)
-                    Toast.makeText(this, "Check your email, $email to reset Password:)", Toast.LENGTH_LONG).show()
                     finish()
                 } else {
-                    Toast.makeText(this, "Failed:( Kindly Input your email correctly and retry", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this,
+                        "Failed:( Kindly Input your email correctly and retry",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
-        }else{
-            inputArray.forEach { input->
-                if(input.text.toString().trim().isEmpty()){
-                    input.error="${input.hint}is required :)"
+        } else {
+            inputArray.forEach { input ->
+                if (input.text.toString().trim().isEmpty()) {
+                    input.error = "${input.hint}is required :)"
                 }
             }
         }
