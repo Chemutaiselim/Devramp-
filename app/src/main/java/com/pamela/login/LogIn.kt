@@ -37,7 +37,6 @@ class LogIn : AppCompatActivity() {
         textView7.setOnClickListener {
             val i = Intent(applicationContext, ResetPassword::class.java)
             startActivity(i)
-            finish()
 
 
         }

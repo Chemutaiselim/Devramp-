@@ -23,26 +23,33 @@ class ResetPassword : AppCompatActivity() {
         inputArray = arrayOf(EmailAddress_forgot_Password)
 
         back_forgot_password.setOnClickListener{
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+         //   startActivity(Intent(this, MainActivity::class.java))
+            //  finish()
+            onBackPressed()
         }
 
 auth= FirebaseAuth.getInstance()
 
         Submit_forgot_password.setOnClickListener {
             sendEmail()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+
         }
     }
-
+    private fun notEmpty():Boolean=email.isNotEmpty()
 
     private fun sendEmail() {
+        auth= FirebaseAuth.getInstance()
         email = EmailAddress_forgot_Password.text.toString().trim()
-        if (TextUtils.isEmpty(email)) {
+
+       // if (TextUtils.isEmpty(email)) {
+        if (notEmpty()) {
+
             auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    val i=Intent(this,LogIn::class.java)
                     Toast.makeText(this, "Check your email,to reset Password:)", Toast.LENGTH_LONG).show()
+                    startActivity(i)
+                    finish()
                 } else {
                     Toast.makeText(this, "Failed Kindly Input your email correctly and retry", Toast.LENGTH_LONG).show()
                 }

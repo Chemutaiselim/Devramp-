@@ -29,8 +29,7 @@
         <activity android:name=".ResetPassword">
 
         </activity>
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            />
+
             </application>
 
 </manifest>

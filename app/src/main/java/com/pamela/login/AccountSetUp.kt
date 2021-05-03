@@ -75,16 +75,17 @@ class AccountSetUp : AppCompatActivity() {
             password_create_account.text.toString().trim().isEmpty() ==
             confirm_password_create_account.text.toString().trim().isEmpty()
         ) {
-            identical = true}
+            identical = true
+        }
         else if (!notEmpty()) {
             createAccountInputArray.forEach { input ->
                 if (input.text.toString().trim().isEmpty()) {
-                    input.error = "${input.hint} is required :|"
+                    input.error = "${input.hint} is required :)"
                 }
 
             }
         }else{
-            Toast.makeText(this,"Passwords are not matching:|",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Passwords are not matching!",Toast.LENGTH_SHORT).show()
         }
         return identical
     }
