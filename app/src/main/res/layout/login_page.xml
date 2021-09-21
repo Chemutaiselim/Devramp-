@@ -52,7 +52,7 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logo Here"
+            android:text="Kipawa"
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
